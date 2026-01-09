@@ -1,0 +1,35 @@
+body{
+    margin: 5% 5%;
+}
+#character_interface { 
+    display: flex;
+    flex-wrap: wrap; 
+    width: fit-content;
+}
+
+#character_interface li {
+    width: 3rem;
+    height: 3rem;
+    margin: 0.5rem;
+    padding: 0.7rem;
+    background-color: antiquewhite;
+    list-style: none;
+}
+#character_interface li:hover {
+    transform: scale(1.3);
+}
+
+/* #character_interface { 
+    width: 80vw;
+    display: flex;
+    justify-content: center;
+}
+
+#character_interface li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem;
+    padding: 1rem;
+    background-color: antiquewhite;
+} */
