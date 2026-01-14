@@ -1,5 +1,5 @@
 body{
-    margin: 5% 5%;
+    margin: 2% 5%;
 }
 
 #bottom {
@@ -39,6 +39,12 @@ body{
     padding: 0;
     list-style: none;
     
+}
+
+#poolNameForm input,
+#poolNameForm button {
+    font-size: 1.5rem;
+    padding: 1em;
 }
 
 .pool {
@@ -101,4 +107,7 @@ body{
 .playButton {
     font-size: 5rem;
     padding: 3rem;
+    box-shadow: 3rem 3rem rgba(0, 0, 0, 0.1) ;
 }
+
+

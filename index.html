@@ -14,12 +14,14 @@
         <ul id="character_interface"></ul>
     </main>
     <section>
-        <input type="text" id="poolName" placeholder="Name of pool">
-        <button type="submit" id="poolSubmit" onclick="collectCurrentPool()">Submit</button> 
+        <form id="poolNameForm">
+            <input type="text" id="poolName" placeholder="Name of pool">
+            <button type="submit" id="poolSubmit" onclick="collectCurrentPool()">Submit</button> 
+        </form>
         <ul id="pools"></ul>
     </section>
     <section id="bottom">
-        <button class="playButton">PLAY</button>
+        <button class="playButton" onclick="playGame()">PLAY</button>
     </section>
     
     
