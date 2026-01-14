@@ -9,6 +9,8 @@
 <body>
     <main>
         <h1>Custom pool randomizer</h1>
+        <button onclick="enableAll()">Enable all</button>
+        <button onclick="disableAll()">Disable all</button>
         <ul id="character_interface"></ul>
     </main>
     <section>
@@ -16,6 +18,10 @@
         <button type="submit" id="poolSubmit" onclick="collectCurrentPool()">Submit</button> 
         <ul id="pools"></ul>
     </section>
+    <section id="bottom">
+        <button class="playButton">PLAY</button>
+    </section>
+    
     
 </body>
 <script src="fun.js"></script>

@@ -1,6 +1,13 @@
 body{
     margin: 5% 5%;
 }
+
+#bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #character_interface { 
     display: flex;
     flex-wrap: wrap; 
@@ -47,15 +54,51 @@ body{
 }
 
 .poolTextField{
-    width: 30%;
+    display: flex;
+    width: 25%;
     height: 100%;
-
     border-radius: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.poolTextField p {
+    font-size: larger;
+    font-weight: bolder;
+    text-transform: uppercase;
+    color: rgb(43, 43, 43);
+    font-family: sans-serif;
 }
 
 .poolIconField{
-    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 65%;
     height: 100%;
-
     border-radius: 1rem;
+}
+
+.poolUIField{
+    display: flex;
+    flex-direction: column;
+    
+    width: 10%;
+    height: 100%;
+    border-radius: 1rem;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.poolUIField input{
+    transform: scale(2);
+    transform-origin: center;
+}
+.poolUIField button{
+    font-size: 1rem;
+}
+
+.playButton {
+    font-size: 5rem;
+    padding: 3rem;
 }
