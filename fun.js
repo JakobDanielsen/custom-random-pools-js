@@ -2,6 +2,7 @@
     TODO: 
     + displayPool()
     + display small icons on the pool element
+    + randomizer functionality
 */
 
 let charRoster = document.getElementById("character_interface");
@@ -12,6 +13,7 @@ let allFighters = ["Mario","DK","Link","Samus","Dark Samus","Yoshi","Kirby","Fox
 let includedFighters = [true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true]
 
 let pools = [];
+let players = [];
 
 let rosterHtml = ""; // html code for the roster that is displayed upon render
 let poolsHtml = ""; // html code for the pools that is displayed upon render
@@ -31,9 +33,7 @@ function render(){
     rosterHtml = ""
 
     // pools render
-    index = 0; // 
-    pools.forEach(pool => {
-        
+    pools.forEach((pool, index) => {
         poolsHtml +=  `
         <li class="pool" > 
             <div class="poolTextField">
@@ -70,6 +70,7 @@ function toggleFighter(fighter){
 }
 
 function collectCurrentPool(){
+    if (document.getElementById("poolName").value == "") return
     let newPool = [];
 
     let i = 0;
@@ -109,3 +110,25 @@ function deleteMe(e){
     pools.splice(e.id,1) // e.id: id attribute of pool delete button in html
     render()
 }
+
+function playGame() {
+    const checkboxes = document.querySelectorAll(".poolUIField input[type='checkbox']");
+
+    const selectedPools = [];
+
+    checkboxes.forEach((checkbox, index) => {
+        if (checkbox.checked) {
+            selectedPools.push(pools[index]); // samme index som i pools-array
+        }
+    });
+    selectedPools.forEach(pool =>{
+    const randomFighter = pool.data[Math.floor(Math.random() * pool.data.length)];
+    console.log(pool.name + ": " + randomFighter);
+    })
+    
+}
+
+document.getElementById("poolNameForm").addEventListener("submit", (e) => {
+    e.preventDefault();
+    collectCurrentPool(); 
+});
