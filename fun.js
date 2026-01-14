@@ -1,8 +1,7 @@
 /* 
     TODO: 
-    + displayPool()
     + display small icons on the pool element
-    + randomizer functionality
+    + use an array with objects to keep track of active fighters instead of two arrays
 */
 
 let charRoster = document.getElementById("character_interface");
@@ -35,7 +34,7 @@ function render(){
     // pools render
     pools.forEach((pool, index) => {
         poolsHtml +=  `
-        <li class="pool" > 
+        <li class="pool"> 
             <div class="poolTextField">
                 <p>${pool.name}</p>
             </div>
@@ -121,14 +120,36 @@ function playGame() {
             selectedPools.push(pools[index]); // samme index som i pools-array
         }
     });
+
+    characterRevealHtml ="";
     selectedPools.forEach(pool =>{
     const randomFighter = pool.data[Math.floor(Math.random() * pool.data.length)];
     console.log(pool.name + ": " + randomFighter);
+
+    characterRevealHtml += 
+    `
+    <div class="characterDisplaySection">
+        <div>
+            <h2>${pool.name}: ${randomFighter}</h2>
+        </div>
+        <div>
+            <p> PLACE HOLDER FOR IMG </p>
+        </div>
+    </div>
+    `
     })
-    
+    document.getElementById("characterPopup").innerHTML = characterRevealHtml
+
+    if (selectedPools.length > 0) {
+            document.getElementById("characterPopup").style.display = "flex"
+    }
 }
 
 document.getElementById("poolNameForm").addEventListener("submit", (e) => {
     e.preventDefault();
     collectCurrentPool(); 
 });
+
+function closeWindow(){
+    document.getElementById("characterPopup").style.display = "none"
+}
