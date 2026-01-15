@@ -12,7 +12,9 @@ body{
 html {
   font-family:Verdana, Geneva, Tahoma, sans-serif;
   text-transform: uppercase;
-
+&::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 h1{
@@ -123,12 +125,13 @@ form {
     border-radius: 1rem;
     align-items: center;
     justify-content: center;
+    text-align: center;
     overflow-wrap: anywhere;
     margin: 1rem;
 }
 
 .poolTextField p {
-    font-size: larger;
+    font-size: 2rem;
     font-weight: bolder;
     text-transform: uppercase;
     color: rgb(43, 43, 43);
@@ -144,8 +147,8 @@ form {
     border-radius: 1rem;
 }
 .poolIconField img{
-    width: 2rem;
-    height: 2rem;
+    width: 2.5rem;
+    height: 2.5rem;
 }
 
 .poolUIField{
@@ -176,24 +179,27 @@ form {
     display: none;
     justify-content: center;
     align-items: center;
-    top:2.5vh;
-    left: 2.5vw;
-    width: 95vw;
-    height: 95vh;
-    background-color: gainsboro;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    
+    background-color: rgb(243, 243, 243);
     border-radius: 2rem;
 }
 
 .characterDisplaySection {
     width: 100%;
+    height: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: whitesmoke;
+    background-color: rgb(255, 255, 255);
     margin: 1rem;
-    border-radius: 1rem;
-    padding: 1rem;
+    border-radius: 0.5rem;
+    padding: 2rem;
+    overflow-wrap: anywhere;
 }
 
 
