@@ -9,15 +9,21 @@
 <body>
     <main>
         <h1>Custom pool randomizer</h1>
-        <button onclick="setAll(true)">Enable all</button>
-        <button onclick="setAll(false)">Disable all</button>
         <ul id="character_interface"></ul>
+        <div id="buttonInterface">
+            <form id="poolNameForm">
+                <input type="text" id="poolName" placeholder="Name of pool">
+                <button type="submit" id="poolSubmit">Submit</button> 
+            </form>
+            <div class="setButtons">
+                <button onclick="setAll(true)">Enable all</button>
+                <button onclick="setAll(false)">Disable all</button>
+            </div>
+        </div>
+        
     </main>
     <section>
-        <form id="poolNameForm">
-            <input type="text" id="poolName" placeholder="Name of pool">
-            <button type="submit" id="poolSubmit">Submit</button> 
-        </form>
+        
         <ul id="pools"></ul>
     </section>
     <section id="bottom">

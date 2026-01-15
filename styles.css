@@ -6,21 +6,29 @@
 }
 
 body{
-    margin: 2% 5%;
+    margin: 2% 3%;
 }
 
 html {
-  font-family: "SmashFont", sans-serif;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+
 }
 
 h1{
     font-size: 5rem;
+    margin: 0;
+    font-family: "SmashFont", sans-serif;
+    text-transform: uppercase;
 }
 
 main button {
     padding: 1rem;
+    height: 100%;
+}
+
+form {
+    display: flex;
 }
 
 #bottom {
@@ -33,14 +41,14 @@ main button {
     display: flex;
     flex-wrap: wrap; 
     width: fit-content;
-    margin:5vh 0; 
+    margin:1vh 0; 
     padding-inline-start: 0;
     justify-content: center;
 }
 
 #character_interface li {
-    width: 3.6rem;
-    height: 3.6rem;
+    width: 4rem;
+    height: 3rem;
     margin: 0.5rem;
     padding: 0.7rem;
     animation: hueShift 60s linear infinite;
@@ -73,14 +81,13 @@ main button {
 
 #character_interface li img {
    height: 100%;
-   width: 100%;
+   width: auto;
 }
 
 #pools {
-    margin: 10vh 0;
+    margin: 8vh 0;
     padding: 0;
     list-style: none;
-    
 }
 
 #poolNameForm input,
@@ -89,12 +96,20 @@ main button {
     padding: 1em;
 }
 
+#buttonInterface {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+}
+
 .pool {
     display: flex;
+    align-items: center;
     background: whitesmoke;
     padding: 0;
     margin: 1rem 0rem;
-    height: 20vh;
+    height: fit-content;
     width: 100%;
     border-radius: 1rem;
     box-shadow: 4px 4px  rgba(0, 0, 0, 0.1) ;
@@ -103,11 +118,13 @@ main button {
 
 .poolTextField{
     display: flex;
-    width: 25%;
+    width: 20%;
     height: 100%;
     border-radius: 1rem;
     align-items: center;
     justify-content: center;
+    overflow-wrap: anywhere;
+    margin: 1rem;
 }
 
 .poolTextField p {
@@ -119,18 +136,23 @@ main button {
 
 .poolIconField{
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     width: 65%;
-    height: 100%;
+    height: fit-content;
     border-radius: 1rem;
+}
+.poolIconField img{
+    width: 2rem;
+    height: 2rem;
 }
 
 .poolUIField{
     display: flex;
     flex-direction: column;
     
-    width: 10%;
+    width: 15%;
     height: 100%;
     border-radius: 1rem;
     align-items: center;
@@ -138,11 +160,15 @@ main button {
 }
 
 .poolUIField input{
-    transform: scale(2);
-    transform-origin: center;
+    width: 2rem;
+    height: 2rem;
 }
 .poolUIField button{
     font-size: 1rem;
+    padding: 1rem;
+}
+.poolUIField > *{
+    margin: 2rem 1rem;
 }
 
 #characterPopup {
@@ -185,9 +211,17 @@ button {
     transform-origin: center;
 }
 
+.setButtons{
+    display: flex;
+}
+.setButtons > button{
+    font-size: large;
+}
+
 button,
 input,
 textarea,
 select {
   font-family: inherit;
 }
+
