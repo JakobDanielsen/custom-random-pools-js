@@ -1,5 +1,6 @@
 /* 
     TODO: 
+    + tweak things so roster has equal amount of rows and columns in fullscreen
     + display icons on roster screen
     + JSON local saving
 */
@@ -23,19 +24,21 @@ let fighters = [
     {fighter: "Ness",active: true, imgpath:"resources/Pngs/ness.png"},
     {fighter: "Captain Falcon",active: true, imgpath:"resources/Pngs/captain_falcon.png"},
     {fighter: "Jigglypuff",active: true, imgpath:"resources/Pngs/jigglypuff.png"},
-    {fighter: "Ganondorf",active: true, imgpath:"resources/Pngs/ganondorf.png"},
-    {fighter: "Young Link",active: true, imgpath:"resources/Pngs/young_link.png"},
-    {fighter: "Lucina",active: true, imgpath:"resources/Pngs/lucina.png"},
-    {fighter: "Marth",active: true, imgpath:"resources/Pngs/marth.png"},
-    {fighter: "Falco",active: true, imgpath:"resources/Pngs/falco.png"},
-    {fighter: "Pichu",active: true, imgpath:"resources/Pngs/pichu.png"},
-    {fighter: "Dr. Mario",active: true, imgpath:"resources/Pngs/dr_mario.png"},
-    {fighter: "Zelda",active: true, imgpath:"resources/Pngs/zelda.png"},
-    {fighter: "Sheik",active: true, imgpath:"resources/Pngs/sheik.png"},
-    {fighter: "Ice Climbers",active: true, imgpath:"resources/Pngs/ice_climbers.png"},
-    {fighter: "Bowser",active: true, imgpath:"resources/Pngs/bowser.png"},
+
+    {fighter: "Peach",active: true, imgpath:"resources/Pngs/peach.png"},    
     {fighter: "Daisy",active: true, imgpath:"resources/Pngs/daisy.png"},
-    {fighter: "Peach",active: true, imgpath:"resources/Pngs/peach.png"},
+    {fighter: "Bowser",active: true, imgpath:"resources/Pngs/bowser.png"},
+    {fighter: "Ice Climbers",active: true, imgpath:"resources/Pngs/ice_climbers.png"},
+    {fighter: "Sheik",active: true, imgpath:"resources/Pngs/sheik.png"},
+    {fighter: "Zelda",active: true, imgpath:"resources/Pngs/zelda.png"},
+    {fighter: "Dr. Mario",active: true, imgpath:"resources/Pngs/dr_mario.png"},
+    {fighter: "Pichu",active: true, imgpath:"resources/Pngs/pichu.png"},
+    {fighter: "Falco",active: true, imgpath:"resources/Pngs/falco.png"},
+    {fighter: "Marth",active: true, imgpath:"resources/Pngs/marth.png"},
+    {fighter: "Lucina",active: true, imgpath:"resources/Pngs/lucina.png"},
+    {fighter: "Young Link",active: true, imgpath:"resources/Pngs/young_link.png"},
+    {fighter: "Ganondorf",active: true, imgpath:"resources/Pngs/ganondorf.png"},
+
     {fighter: "Mewtwo",active: true, imgpath:"resources/Pngs/mewtwo.png"},
     {fighter: "Roy",active: true, imgpath:"resources/Pngs/roy.png"},
     {fighter: "Chrom",active: true, imgpath:"resources/Pngs/chrom.png"},
@@ -49,19 +52,23 @@ let fighters = [
     {fighter: "Ike",active: true, imgpath:"resources/Pngs/ike.png"},
     {fighter: "Pokemon Trainer",active: true, imgpath:"resources/Pngs/pokemon_trainer.png"},
     {fighter: "Diddy Kong",active: true, imgpath:"resources/Pngs/diddy_kong.png"},
-    {fighter: "Little Mac",active: true, imgpath:"resources/Pngs/little_mac.png"},
-    {fighter: "Rosalina",active: true, imgpath:"resources/Pngs/rosalina_and_luma.png"},
-    {fighter: "Wii Fit Trainer",active: true, imgpath:"resources/Pngs/wii_fit_trainer.png"},
-    {fighter: "Mega Man",active: true, imgpath:"resources/Pngs/mega_man.png"},
-    {fighter: "Villager",active: true, imgpath:"resources/Pngs/villager.png"},
-    {fighter: "Wolf",active: true, imgpath:"resources/Pngs/wolf.png"},
-    {fighter: "Toon Link",active: true, imgpath:"resources/Pngs/toon_link.png"},
-    {fighter: "ROB",active: true, imgpath:"resources/Pngs/rob.png"},
-    {fighter: "Lucario",active: true, imgpath:"resources/Pngs/lucario.png"},
-    {fighter: "Olimar",active: true, imgpath:"resources/Pngs/olimar.png"},
-    {fighter: "King Dedede",active: true, imgpath:"resources/Pngs/king_dedede.png"},
-    {fighter: "Sonic",active: true, imgpath:"resources/Pngs/sonic.png"},
+
     {fighter: "Lucas",active: true, imgpath:"resources/Pngs/lucas.png"},
+    {fighter: "Sonic",active: true, imgpath:"resources/Pngs/sonic.png"},
+    {fighter: "King Dedede",active: true, imgpath:"resources/Pngs/king_dedede.png"},
+    {fighter: "Olimar",active: true, imgpath:"resources/Pngs/olimar.png"},
+    {fighter: "Lucario",active: true, imgpath:"resources/Pngs/lucario.png"},
+    {fighter: "ROB",active: true, imgpath:"resources/Pngs/rob.png"},
+    {fighter: "Toon Link",active: true, imgpath:"resources/Pngs/toon_link.png"},
+    {fighter: "Wolf",active: true, imgpath:"resources/Pngs/wolf.png"},
+    {fighter: "Villager",active: true, imgpath:"resources/Pngs/villager.png"},
+    {fighter: "Mega Man",active: true, imgpath:"resources/Pngs/mega_man.png"},
+    {fighter: "Wii Fit Trainer",active: true, imgpath:"resources/Pngs/wii_fit_trainer.png"},
+    {fighter: "Rosalina",active: true, imgpath:"resources/Pngs/rosalina_and_luma.png"},
+    {fighter: "Little Mac",active: true, imgpath:"resources/Pngs/little_mac.png"},
+   
+   
+   
     {fighter: "Greninja",active: true, imgpath:"resources/Pngs/greninja.png"},
     {fighter: "Palutena",active: true, imgpath:"resources/Pngs/palutena.png"},
     {fighter: "Pacman",active: true, imgpath:"resources/Pngs/pac_man.png"},
@@ -75,6 +82,7 @@ let fighters = [
     {fighter: "Corrin",active: true, imgpath:"resources/Pngs/corrin.png"},
     {fighter: "Bayonetta",active: true, imgpath:"resources/Pngs/bayonetta.png"},
     {fighter: "Inkling",active: true, imgpath:"resources/Pngs/inkling.png"},
+
     {fighter: "Ridley",active: true, imgpath:"resources/Pngs/ridley.png"},
     {fighter: "Simon",active: true, imgpath:"resources/Pngs/simon.png"},
     {fighter: "Ricther",active: true, imgpath:"resources/Pngs/richter.png"},
@@ -94,7 +102,6 @@ let fighters = [
     {fighter: "Kazuya",active: true, imgpath:"resources/Pngs/kazuya.png"},
     {fighter: "Sora",active: true, imgpath:"resources/Pngs/sora.png"}
     ]
-    
 let players = [];
 
 let rosterHtml = ""; // html code for the roster that is displayed upon render
@@ -110,10 +117,7 @@ function render(){
 }
 render(); // initial render
 
-
 function renderPools(){
-
-    // pools render
     pools.forEach((pool, index) => {
         poolsHtml +=  `
         <li class="pool"> 
@@ -127,8 +131,7 @@ function renderPools(){
                 <input type="checkbox">
                 <button onclick="deleteMe(this)" id="${index}">Delete</button>
             </div>
-        </li>`;
-
+        </li>`
         /*
         Display character images inside the tab
         pool.data.forEach(fighter => {
@@ -142,9 +145,9 @@ function renderPools(){
 }
 
 function toggleFighter(currentFighter){
-    console.log("toggle " + currentFighter); 
+    // console.log("toggle " + currentFighter); 
     fighterValue = fighters.find(obj => obj.fighter === currentFighter); // finds object with same referenece since passing objects through onclick is unintuitive
-    console.log(fighterValue);
+    // console.log(fighterValue);
     fighterValue.active = !fighterValue.active 
     if(!fighterValue.active) document.getElementById(fighterValue.fighter).classList.add("disabled")
         else document.getElementById(fighterValue.fighter).classList.remove("disabled")
@@ -154,18 +157,17 @@ function collectCurrentPool(){
     if (document.getElementById("poolName").value == "") return
     let newPool = [];
 
-    
     fighters.forEach((currentFighter, i) => {
         if(currentFighter.active){
             newPool.push(currentFighter.fighter)
         }
         i++;
     })
-    console.log(newPool);
+    // console.log(newPool);
 
     const existingIndex = pools.findIndex(pool => pool.name.toLowerCase() === document.getElementById("poolName").value.toLowerCase());
     if(existingIndex !==-1){
-       console.log(existingIndex);
+    //    console.log(existingIndex);
        pools[existingIndex] = {
             name: document.getElementById("poolName").value,
             data: newPool}
@@ -199,7 +201,6 @@ function deleteMe(e){
 
 function playGame() {
     const checkboxes = document.querySelectorAll(".poolUIField input[type='checkbox']");
-
     const selectedPools = [];
 
     checkboxes.forEach((checkbox, index) => {
@@ -211,7 +212,7 @@ function playGame() {
     characterRevealHtml ="";
     selectedPools.forEach(pool =>{
     const randomFighter = pool.data[Math.floor(Math.random() * pool.data.length)];
-    console.log(pool.name + ": " + randomFighter);
+    // console.log(pool.name + ": " + randomFighter);
 
     characterRevealHtml += 
     `
