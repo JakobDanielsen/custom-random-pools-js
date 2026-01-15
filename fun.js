@@ -1,7 +1,5 @@
 /* 
     TODO: 
-    + tweak things so roster has equal amount of rows and columns in fullscreen
-    + display icons on roster screen
     + JSON local saving
 */
 
@@ -118,14 +116,20 @@ function render(){
 render(); // initial render
 
 function renderPools(){
-    pools.forEach((pool, index) => {
+    pools.forEach((pool,index) => {
+
+        let allIcons = ""
+        pool.data.forEach(e=>{
+            allIcons += `<img src="${e.imgpath}">`
+        })
+        
         poolsHtml +=  `
         <li class="pool"> 
             <div class="poolTextField">
                 <p>${pool.name}</p>
             </div>
             <div class="poolIconField">
-            ${pool.data}
+            ${allIcons}
             </div>
             <div class="poolUIField">
                 <input type="checkbox">
@@ -159,7 +163,9 @@ function collectCurrentPool(){
 
     fighters.forEach((currentFighter, i) => {
         if(currentFighter.active){
-            newPool.push(currentFighter.fighter)
+            newPool.push(currentFighter)
+            // console.log(currentFighter);
+            
         }
         i++;
     })
@@ -176,6 +182,8 @@ function collectCurrentPool(){
             name:document.getElementById("poolName").value,
             data: newPool});
     }
+    // console.log(pools);
+    
     renderPools()
     document.getElementById("poolName").value = ""
 }
@@ -211,7 +219,9 @@ function playGame() {
 
     characterRevealHtml ="";
     selectedPools.forEach(pool =>{
-    const randomFighter = pool.data[Math.floor(Math.random() * pool.data.length)];
+    const randomIndex = Math.floor(Math.random() * pool.data.length);
+    const randomFighter = pool.data[randomIndex].fighter
+
     // console.log(pool.name + ": " + randomFighter);
 
     characterRevealHtml += 
@@ -221,7 +231,7 @@ function playGame() {
             <h2>${pool.name}: ${randomFighter}</h2>
         </div>
         <div>
-            <p> PLACE HOLDER FOR IMG </p>
+            <img src="${pool.data[randomIndex].imgpath}">
         </div>
     </div>
     `
