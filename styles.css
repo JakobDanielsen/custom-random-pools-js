@@ -209,7 +209,7 @@ button {
 
 .playButton {
     font-size: 5rem;
-    padding: 3rem;
+    padding: 2rem 7rem;
     box-shadow: 3rem 3rem rgba(0, 0, 0, 0.1) ;
 }
 .playButton:hover{
