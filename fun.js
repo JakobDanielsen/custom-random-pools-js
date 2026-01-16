@@ -1,10 +1,11 @@
 /* 
     TODO: 
-    + localstorage saving
     +   -   move localstorageupdate to poolsrender?
     + dont deselect pools after submit
+    +   -   probably ficed with  insertadjacenthtml
     + sfx?
     + remove icon flicker after submit
+    +   -   use insertadjacenthtml
 */
 
 let charRoster = document.getElementById("character_interface");
@@ -214,24 +215,24 @@ function playGame() {
     selectedPools.forEach(pool =>{
         if(pool.data.length === 0) containsEmptyPool = true
     })
-    if(containsEmptyPool) return;
+    if(containsEmptyPool){
+        console.log("cant play with empty array");
+        return
+    } 
   
-
-
     characterRevealHtml ="";
+    allRandomChars = [] // for ditto detection
+
     selectedPools.forEach(pool =>{
-    
-
     const randomIndex = Math.floor(Math.random() * pool.data.length);
-    const randomFighter = pool.data[randomIndex].fighter
-
-    // console.log(pool.name + ": " + randomFighter);
+    const randomFighter = pool.data[randomIndex]
+    allRandomChars.push(randomFighter)
 
     characterRevealHtml += 
     `
     <div class="characterDisplaySection">
         <div>
-            <h2>${pool.name}: ${randomFighter}</h2>
+            <h2>${pool.name}: ${randomFighter.fighter}</h2>
         </div>
         <div>
             <img src="${pool.data[randomIndex].imgpath}">
@@ -239,6 +240,21 @@ function playGame() {
     </div>
     `
     })
+    
+    if (allRandomChars.every((fighter => fighter.fighter === allRandomChars[0].fighter)) && allRandomChars.length > 1) {
+        console.log("ditto!");
+        characterRevealHtml =  
+         `<div class="characterDisplaySection">
+            <div>
+                <h2>${allRandomChars[0].fighter} ditto</h2>
+            </div>
+            <div>
+                <img src="${allRandomChars[0].imgpath}">
+            </div>
+        </div>`
+
+    }
+
     document.getElementById("characterPopup").innerHTML = characterRevealHtml
 
     if (selectedPools.length > 0) {
@@ -254,13 +270,6 @@ function updateLocalstorage(key,data){
     localStorage.setItem(key,JSON.stringify(data))
 }
 
-
-document.getElementById("poolNameForm").addEventListener("submit", (e) => {
-    e.preventDefault();
-    savePool(); 
-});
-
-
 if (localStorage.getItem("savedPools") !== null) {
     let localStorageData = JSON.parse(localStorage.getItem("savedPools"))
     localStorageData.forEach(e =>{
@@ -269,3 +278,8 @@ if (localStorage.getItem("savedPools") !== null) {
     })
     renderPools();
 }
+
+document.getElementById("poolNameForm").addEventListener("submit", (e) => {
+    e.preventDefault();
+    savePool(); 
+});
