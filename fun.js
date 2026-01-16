@@ -6,7 +6,6 @@
     +   -   use insertadjacenthtml
     + dont deselect pools after submit
     +   -   probably ficed with  insertadjacenthtml
-    + replace onclick="" in html with eventlisteners
 */
 
 //DOM references 
@@ -300,15 +299,14 @@ charRoster.addEventListener("click",(clickedElement=>{
 }))
 
 playButton.addEventListener("click", ()=> playGame())
-document.addEventListener("keydown", (e=>{
-    if(e.code == "Space"){
-        e.preventDefault()
-        if(popupActive) {
-            closeWindow()
-        } else {
-            playGame()
-        }
+document.addEventListener("keydown", (e) => {
+    const tag = document.activeElement.tagName;
+    if (tag === "INPUT" || tag === "TEXTAREA") return; // allowing space to be pressed if inside a textarea
+ 
+    if (e.code === "Space") {
+        e.preventDefault();
+        popupActive ? closeWindow() : playGame();
     }
-}))
+});
 
 characterPopup.addEventListener("click",()=> closeWindow())
