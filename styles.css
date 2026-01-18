@@ -1,3 +1,6 @@
+
+
+
 @font-face {
   font-family: "SmashFont";
   src: url("resources/super_smash_4_1_by_pokemon_diamond-d7zxu6d.ttf") format("truetype");
@@ -244,3 +247,53 @@ select {
   font-family: inherit;
 }
 
+
+@media (max-width: 768px) {
+    #button_interface{
+        display: block;
+    }
+    body {
+        margin: 2% 2%;
+    }
+    img{
+        height: 3rem;
+    }
+    h1 {
+        font-size: 12vw;
+    }
+
+    #character_interface li {
+       width: 10vw;
+        height: 15vw;
+        margin: 1vw;
+    }
+
+    #play_button {
+        font-size: 12vw;
+        padding: 3vw 6vw;
+    }
+
+
+    #characterPopup {
+        flex-direction: column;
+    }
+
+    .pool {
+        flex-direction: column;
+    }
+    .poolTextField{
+        width: 100%;
+    }
+    .poolUIField{
+        justify-content: center;
+        flex-direction: row-reverse;
+        width: 100%;
+    }
+
+    .characterDisplaySection{
+        width: auto;
+    }
+    .characterDisplaySection div{
+        display: flex;
+    }
+}
